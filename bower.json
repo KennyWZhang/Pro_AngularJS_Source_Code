@@ -1,0 +1,25 @@
+{
+  "name": "chapter_1",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Kenny.W.Zhang <victorypiter@msn.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "bootstrap": "^3.3.7"
+  },
+  "resolutions": {
+    "bootstrap": "^3.3.7"
+  }
+}

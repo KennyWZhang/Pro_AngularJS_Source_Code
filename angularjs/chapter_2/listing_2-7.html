@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="toDoApp">
+  <head>
+
+    <script src="../angular/angular.js"></script>
+    <link href="../bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      var model = {
+        user: "Adam",
+        items: [
+          {action: "Buy Flowers", done:false},
+          {action: "Buy Flowers2", done:false},
+          {action: "Buy Flowers3", done:true}
+        ]
+      };
+
+      var toDoAppModule = angular.module("toDoApp", []);
+
+      toDoAppModule.controller(
+        "toDoController",
+        function ($scope) {
+          $scope.todoModel = model;
+
+          $scope.incompleteCount = function () {
+              var count = 0;
+              angular.forEach(
+                $scope.todoModel.items,
+                function (item) {
+                  // print out the object to bowser console
+                  console.log(item);
+
+                  if (item.done === false) {
+                    count++;
+                  }
+                }
+              );
+              return count;
+          };
+        }
+      );
+
+    </script>
+
+  </head>
+  <body ng-controller="toDoController">
+    <div class="page-header">
+      {{todoModel.user}}'s To Do List
+      <span class="label label-default" ng-hide="incompleteCount() === 0" >
+        {{incompleteCount()}}
+      </span>
+    </div>
+    <div class="panel">
+
+      <div class="input-group">
+        <input class="form-control" />
+
+        <span class="input-group-btn">
+          <button class="btn btn-default">Add</button>
+        </span>
+
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>description</th>
+            <th>Done</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in todoModel.items">
+            <td>
+              {{item.action}}
+            </td>
+            <td>
+              <input type="checkbox" ng-model="item.done" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

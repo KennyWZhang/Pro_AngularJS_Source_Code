@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="sportsStoreApp">
+  <head>
+
+    <script src="../angular/angular.js"></script>
+    <link href="../bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      var myModule = angular.module("sportsStoreApp", ["customFilters"]);
+    </script>
+
+    <script src="controllers/listing_6-2.js"></script>
+
+    <script src="filters/listing_6-4.js"></script>
+
+  </head>
+  <body ng-controller="sportsStoreController">
+    <div class="navbar navbar-inverse">
+      <a class="navbar-brand" href="#"> SPORTS STORE</a>
+    </div>
+
+    <div class="panel panel-default row">
+      <div class="col-xs-3">
+        <a ng-click="selectCategory()" class="btn btn-block btn-default btn-lg">Home</a>
+        <a ng-repeat="item in data.products | orderBy: 'category' | uniqueF:'category'"
+        ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg">
+          {{item}}
+        </a>
+      </div>
+
+      <div class="col-xs-8">
+        <div class="well" ng-repeat="item in data.products">
+          <h3>
+            <strong>{{item.name}}</strong>
+            <span class="pull-right label label-primary">
+              {{item.price | currency}}
+            </span>
+          </h3>
+          <span class="lead">{{item.desciption}}</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

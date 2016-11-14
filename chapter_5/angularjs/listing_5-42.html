@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+  <head>
+
+    <script src="../angular/angular.js"></script>
+    <link href="../bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+
+      var myModule = angular.module("demo", []);
+
+      myModule.controller(
+        "demoController",
+        function ($scope, $http) {
+          var promise = $http.get("todo.json");
+          promise.success(function (data) {
+            $scope.todoModel = data;
+          });
+        }
+      );
+
+    </script>
+
+  </head>
+  <body ng-controller="demoController">
+    <div class="panel">
+      <table class="table">
+        <tr>
+          <th>description</th>
+          <th>Done</th>
+        </tr>
+        <tr ng-repeat="item in todoModel">
+          <td>{{item.action}}</td>
+          <td>{{item.done}}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
