@@ -12,8 +12,14 @@
         "sportsStoreApp",
         ["customFilters", "cart", "ngRoute"])
         .config(function ($routeProvider) {
+          $routeProvider.when("/complete", {
+            templateUrl: "/views/thankYou.html"
+          });
+          $routeProvider.when("/placeorder", {
+            templateUrl: "/views/placeorder.html"
+          });
           $routeProvider.when("/checkout", {
-            templateUrl: "/views/listing_7-11.html"
+            templateUrl: "/views/listing_7-15.html"
           });
           $routeProvider.when("/products", {
             templateUrl: "/views/listing_7-10.html"
@@ -31,6 +37,8 @@
     <script src="filters/listing_6-11.js"></script>
 
     <script src="components/cart/listing_7-6-2.js"></script>
+
+    <script src="controllers/listing_7-14.js"></script>
 
   </head>
   <body ng-controller="sportsStoreController">
