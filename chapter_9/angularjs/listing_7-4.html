@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="sportsStoreApp">
+  <head>
+
+    <script src="../angular/angular.js"></script>
+    <link href="../bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      var myModule = angular.module("sportsStoreApp", ["customFilters"]);
+    </script>
+
+    <script src="controllers/listing_7-1.js"></script>
+
+    <script src="controllers/listing_6-10.js"></script>
+
+    <script src="filters/listing_6-11.js"></script>
+
+  </head>
+  <body ng-controller="sportsStoreController">
+    <div class="navbar navbar-inverse">
+      <a class="navbar-brand" href="#">SPORTS STORE</a>
+    </div>
+
+    <div class="alert alert-danger" ng-show="data.error">
+      Error: {{data.error}}
+      <a href="/listing_7-2.html" class="alert-link">Click here to reload again</a>
+    </div>
+
+    <ng-include src="'views/listing_7-3.html'"></ng-include>
+  </body>
+</html>
