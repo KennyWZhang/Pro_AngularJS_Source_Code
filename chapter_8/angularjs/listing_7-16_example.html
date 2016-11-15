@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="sportsStoreApp">
+  <head>
+
+    <script src="../angular/angular.js"></script>
+    <script src="../angular-route/angular-route.js"></script>
+    <link href="../bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      var myModule = angular.module(
+        "sportsStoreApp",
+        ["customFilters", "cart", "ngRoute"])
+        .config(function ($routeProvider) {
+          $routeProvider.when("/complete", {
+            templateUrl: "/views/thankYou.html"
+          });
+          $routeProvider.when("/placeorder", {
+            templateUrl: "/views/listing_8-1_placeorder.html"
+          });
+          $routeProvider.when("/checkout", {
+            templateUrl: "/views/listing_7-15.html"
+          });
+          $routeProvider.when("/products", {
+            templateUrl: "/views/listing_7-10.html"
+          });
+          $routeProvider.otherwise({
+            templateUrl: "/views/listing_7-10.html"
+          });
+        });
+    </script>
+
+    <script src="controllers/listing_7-1.js"></script>
+
+    <script src="controllers/listing_7-9.js"></script>
+
+    <script src="filters/listing_6-11.js"></script>
+
+    <script src="components/cart/listing_7-6-2.js"></script>
+
+    <script src="controllers/listing_7-14.js"></script>
+
+  </head>
+  <body ng-controller="sportsStoreController">
+    <div class="navbar navbar-inverse">
+      <a class="navbar-brand" href="#">SPORTS STORE</a>
+      <cart-summary-sa />
+    </div>
+
+    <div class="alert alert-danger" ng-show="data.error">
+      Error: {{data.error}}
+      <a href="/listing_7-12.html" class="alert-link">Click here to reload again</a>
+    </div>
+
+    <ng-view />
+  </body>
+</html>

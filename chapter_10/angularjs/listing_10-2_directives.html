@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+  <head>
+
+    <script src="/angular/angular.js"></script>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      angular.module("exampleApp", [])
+      .controller(
+        "defaultController",
+        function ($scope) {
+          $scope.todos = [
+            {action: "action #1", complete: false},
+            {action: "action #2", complete: false},
+            {action: "action #3", complete: false},
+            {action: "action #4", complete: false},
+            {action: "action #1", complete: false}
+          ];
+        }
+      );
+    </script>
+
+  </head>
+  <body>
+    <div id="todoPanel" class="panel" ng-controller="defaultController">
+      <h3 class="page-header">To Do List</h3>
+
+      <div >
+        There are {{todos.length}} items
+      </div>
+
+      <div>
+        There are <span ng-bind="todos.length"></span> items
+      </div>
+
+      <div ng-bind-template="First: {{todos[0].action}}. Second: {{todos[1].action}}">
+      </div>
+
+      <div ng-non-bindable>
+        Angular use {{ and }} characters for templates
+      </div>
+    </div>
+  </body>
+</html>
