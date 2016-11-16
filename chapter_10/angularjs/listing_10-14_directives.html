@@ -18,37 +18,29 @@
             {action: "action #4", complete: false},
             {action: "action #5", complete: false}
           ];
+
+          $scope.viewFile = function () {
+            return $scope.showList ? "listing_10-13_list.html" : "listing_10-12_table.html";
+          }
         }
       );
     </script>
-    <style>
-      .odd {background-color: lightcoral}
-      .even {background-color: lavenderblush}
-    </style>
+
   </head>
   <body>
     <div id="todoPanel" class="panel" ng-controller="defaultController">
       <h3 class="page-header">To Do List</h3>
 
-      <table class="table">
-        <tbody>
-          <tr ng-repeat-start="item in todos">
-            <td>
-              This is item {{$index}}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              The action is: {{item.action}}
-            </td>
-          </tr>
-          <tr ng-repeat-end>
-            <td>
-              Item {{$index}} is {{item.complte ? '' : "not"}} complete
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="well">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="showList" />
+            Use the list view
+          </label>
+        </div>
+      </div>
+
+      <ng-include src="viewFile()"></ng-include>
     </div>
   </body>
 </html>

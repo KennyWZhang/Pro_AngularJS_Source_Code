@@ -21,34 +21,13 @@
         }
       );
     </script>
-    <style>
-      .odd {background-color: lightcoral}
-      .even {background-color: lavenderblush}
-    </style>
+
   </head>
   <body>
     <div id="todoPanel" class="panel" ng-controller="defaultController">
       <h3 class="page-header">To Do List</h3>
 
-      <table class="table">
-        <tbody>
-          <tr ng-repeat-start="item in todos">
-            <td>
-              This is item {{$index}}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              The action is: {{item.action}}
-            </td>
-          </tr>
-          <tr ng-repeat-end>
-            <td>
-              Item {{$index}} is {{item.complte ? '' : "not"}} complete
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <ng-include src="'listing_10-12_table.html'"><ng-include>
     </div>
   </body>
 </html>
