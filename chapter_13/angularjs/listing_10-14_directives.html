@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+  <head>
+
+    <script src="/angular/angular.js"></script>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      angular.module("exampleApp", [])
+      .controller(
+        "defaultController",
+        function ($scope) {
+          $scope.todos = [
+            {action: "action #1", complete: false},
+            {action: "action #2", complete: false},
+            {action: "action #3", complete: false},
+            {action: "action #4", complete: false},
+            {action: "action #5", complete: false}
+          ];
+
+          $scope.viewFile = function () {
+            return $scope.showList ? "listing_10-13_list.html" : "listing_10-12_table.html";
+          }
+        }
+      );
+    </script>
+
+  </head>
+  <body>
+    <div id="todoPanel" class="panel" ng-controller="defaultController">
+      <h3 class="page-header">To Do List</h3>
+
+      <div class="well">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="showList" />
+            Use the list view
+          </label>
+        </div>
+      </div>
+
+      <ng-include src="viewFile()"></ng-include>
+    </div>
+  </body>
+</html>
