@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+  <head>
+
+    <script src="/angular/angular.js"></script>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      angular.module("exampleApp", [])
+      .controller(
+        "simpleController",
+        function ($scope) {
+
+          $scope.cities = ["London", "New York", "Paris"];
+
+          $scope.city = "London";
+
+          $scope.getCountry = function (city) {
+            switch (city) {
+              case "London":
+                return "UK";
+              case "New York":
+                return "USA";
+            }
+          };
+        }
+      );
+    </script>
+
+  </head>
+  <body ng-controller="simpleController">
+
+    <div class="well">
+      <label>select a city:</label>
+      <select ng-model="city" ng-options="city for city in cities">
+      </select>
+    </div>
+
+    <div class="well">
+      <p>
+        The city is: {{city}}
+      </p>
+      <p>
+        The country is: {{getCountry(city) || "Unknown"}}
+      </p>
+    </div>
+
+  </body>
+</html>
