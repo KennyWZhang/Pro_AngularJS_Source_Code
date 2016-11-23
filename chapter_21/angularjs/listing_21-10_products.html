@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+  <head>
+
+    <script src="/angular/angular.js"></script>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="listing_21-8_products.js"></script>
+
+    <script src="listing_21-9_increment.js"></script>
+
+  </head>
+  <body ng-controller="simpleController">
+      <div class="panel panel-primary">
+        <h3 class="panel-heading">Products</h3>
+        <ng-include src="'listing_21-3_tableView.html'" ng-show="displayMode == 'list'"></ng-include>
+        <ng-include src="'listing_21-4_editorView.html'" ng-show="displayMode == 'edit'"></ng-include>
+      </div>
+  </body>
+</html>
