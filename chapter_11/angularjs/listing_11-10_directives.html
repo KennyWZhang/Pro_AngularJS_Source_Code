@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+  <head>
+
+    <script src="/angular/angular.js"></script>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+      angular.module("exampleApp", [])
+      .controller(
+        "defaultController",
+        function ($scope, $location) {
+
+          $scope.dataValue = false
+        }
+      )
+    </script>
+
+  </head>
+  <body>
+    <div id="todoPanel" class="panel" ng-controller="defaultController">
+
+      <!-- <div class="well" tap="message='Tapped!'"> -->
+      <div class="well checkbox">
+        <label>
+          <input type="checkbox" ng-model="dataValue">
+          Set the Data Value
+        </label>
+      </div>
+
+      <button class="btn btn-success" ng-disabled="dataValue">
+        My Button
+      </button>
+    </div>
+  </body>
+</html>
